@@ -34,7 +34,12 @@ export const CardPicture: React.FC<PictureProps> = ({
   return (
     <PictureCard>
       <div>
-        <img style={{ borderRadius: "12px" }} src={thumbnailUrl} alt={title} />
+        <img
+          data-testid="card"
+          style={{ borderRadius: "12px" }}
+          src={thumbnailUrl}
+          alt={title}
+        />
         <CardContent
           sx={{
             display: "flex",
