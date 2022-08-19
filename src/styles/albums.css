@@ -1,0 +1,11 @@
+.heading {
+  font-family: "Manrope", sans-serif;
+  letter-spacing: 2;
+}
+.cardsContainer {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 20px;
+}
