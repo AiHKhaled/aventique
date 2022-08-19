@@ -1,8 +1,8 @@
-import React from "react";
-import { styled } from "@mui/material";
-import { AlbumProps } from "@/@types/AlbumProps";
+import React from 'react'
+import { styled } from '@mui/material'
+import { AlbumProps } from '@/@types/AlbumProps'
 
-const AlbumContainer = styled("div")`
+const AlbumContainer = styled('div')`
   transition: 1s;
   inline-size: 150px;
   overflow-wrap: break-word;
@@ -17,7 +17,7 @@ const AlbumContainer = styled("div")`
     background-color: #ebfbea;
     z-index: 2;
   }
-`;
+`
 
 const Album: React.FC<AlbumProps> = ({ title }: AlbumProps) => {
   return (
@@ -26,7 +26,7 @@ const Album: React.FC<AlbumProps> = ({ title }: AlbumProps) => {
         <h4>{title}</h4>
       </AlbumContainer>
     </>
-  );
-};
+  )
+}
 
-export default Album;
+export default Album
