@@ -1,12 +1,13 @@
-import React from 'react'
-import welcome from '../Welcome.jpg'
-import { Typography, Stack, styled } from '@mui/material'
-import { Link } from 'react-router-dom'
-import { ChildProps } from '@/@types/ChildProps'
-import '../styles/welcomeSheet.css'
+/* eslint-disable */
+import React from "react";
+import welcome from "../Welcome.jpg";
+import { Typography, Stack, styled } from "@mui/material";
+import { Link } from "react-router-dom";
+import { ChildProps } from "@/@types/ChildProps";
+import "../styles/welcomeSheet.css";
 
 const Welcome: React.FC<ChildProps> = ({ setIsLoggedIn }: ChildProps) => {
-  if (setIsLoggedIn) setIsLoggedIn(false)
+  if (setIsLoggedIn) setIsLoggedIn(false);
 
   const StyledLink = styled(Link)`
     display: inline-block;
@@ -34,7 +35,7 @@ const Welcome: React.FC<ChildProps> = ({ setIsLoggedIn }: ChildProps) => {
       transform: scaleX(1);
       transform-origin: bottom left;
     }
-  `
+  `;
 
   const Quote = styled(Stack)`
     position: absolute;
@@ -44,17 +45,17 @@ const Welcome: React.FC<ChildProps> = ({ setIsLoggedIn }: ChildProps) => {
     top: 150px;
     right: 50%;
     transform: translate(20%, 40%);
-  `
+  `;
 
   const Header = styled(Typography)`
     color: #ebfbea;
     font-weight: bold;
     text-align: left;
     font-size: 30px;
-  `
+  `;
   return (
-    <div className='container'>
-      <img style={{ position: 'relative' }} src={welcome} alt='' />
+    <div className="container">
+      <img style={{ position: "relative" }} src={welcome} alt="" />
       <Quote>
         <Header>
           “Photography for me is not looking, it’s feeling. If you can’t feel
@@ -62,10 +63,10 @@ const Welcome: React.FC<ChildProps> = ({ setIsLoggedIn }: ChildProps) => {
           anything when they look at your pictures.” — Don McCullin
         </Header>
 
-        <StyledLink to='/albums'>Go to Albums</StyledLink>
+        <StyledLink to="/albums">Go to Albums</StyledLink>
       </Quote>
     </div>
-  )
-}
+  );
+};
 
-export default Welcome
+export default Welcome;
