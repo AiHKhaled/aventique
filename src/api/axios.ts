@@ -1,5 +1,6 @@
-import axios from 'axios'
+/* eslint-disable */
+import axios from "axios";
 
 export default axios.create({
-  baseURL: 'https://jsonplaceholder.typicode.com/albums/',
-})
+  baseURL: "https://jsonplaceholder.typicode.com/albums/",
+});

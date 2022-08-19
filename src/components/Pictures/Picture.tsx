@@ -1,8 +1,9 @@
-import { PictureProps } from '@/@types/PictureProps'
-import { Card, styled } from '@mui/material'
-import CardContent from '@mui/material/CardContent'
+/* eslint-disable */
+import { PictureProps } from "@/@types/PictureProps";
+import { Card, styled } from "@mui/material";
+import CardContent from "@mui/material/CardContent";
 
-import Typography from '@mui/material/Typography'
+import Typography from "@mui/material/Typography";
 
 const PictureCard = styled(Card)`
   display: flex;
@@ -24,7 +25,7 @@ const PictureCard = styled(Card)`
     z-index: 2;
     background-color: #a9c0d1;
   }
-`
+`;
 
 export const CardPicture: React.FC<PictureProps> = ({
   title,
@@ -33,16 +34,16 @@ export const CardPicture: React.FC<PictureProps> = ({
   return (
     <PictureCard>
       <div>
-        <img style={{ borderRadius: '12px' }} src={thumbnailUrl} alt={title} />
+        <img style={{ borderRadius: "12px" }} src={thumbnailUrl} alt={title} />
         <CardContent
           sx={{
-            display: 'flex',
-            flexWrap: 'wrap',
+            display: "flex",
+            flexWrap: "wrap",
           }}
         >
-          <Typography variant='body1'>{title}</Typography>
+          <Typography variant="body1">{title}</Typography>
         </CardContent>
       </div>
     </PictureCard>
-  )
-}
+  );
+};
