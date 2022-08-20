@@ -9,18 +9,22 @@ const useFetch = (url: string) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    setLoading(true); //loading set true when the request started
-    axios
-      .get(url)
-      .then(({ data }) => {
-        setFetchData(data);
-      })
-      .catch((error: any) => {
-        setError(error);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+    const fetch = async () => {
+      setLoading(true); //loading set true when the request started
+      await axios
+        .get(url)
+        .then(({ data }) => {
+          setFetchData(data);
+        })
+        .catch((error: any) => {
+          setError(error);
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    };
+
+    fetch();
   }, [url]);
 
   return { fetchData, loading, error };
