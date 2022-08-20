@@ -1,9 +1,9 @@
 /* eslint-disable */
-import React, { useEffect, useState } from "react";
-import axios from "../../api/axios";
+import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Button, Typography } from "@mui/material";
+import { Button, CircularProgress } from "@mui/material";
 import { CardPicture } from "./Picture";
+import useFetch from "@/hooks/useFetch";
 
 const styles = {
   picsContainer: {
@@ -23,26 +23,12 @@ const styles = {
 };
 
 const Pictures = () => {
-  const [pictures, setPictures] = useState<[]>([]);
-
   const [cardsLimit, setCardsLimit] = useState<number>(15);
   const { id } = useParams();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (id) {
-      axios
-        .get(`${id}/photos`)
-        .then((res) => {
-          const { data } = res;
+  const { fetchData: pictures, loading, error } = useFetch(`${id}/photos`);
 
-          setPictures(data);
-        })
-        .catch((err: any) => {
-          console.log(err);
-        });
-    }
-  }, [id]);
   const slicedData = pictures?.slice(0, cardsLimit);
 
   const handleLoadMore = () => {
@@ -56,6 +42,8 @@ const Pictures = () => {
   return (
     <>
       <h1> Pictures</h1>
+      {loading && <CircularProgress color="success" />}
+      {error && <p>{error}</p>}
       <div style={styles.picsContainer as React.CSSProperties}>
         {slicedData.map(({ title, id, thumbnailUrl }) => (
           <CardPicture title={title} key={id} thumbnailUrl={thumbnailUrl} />

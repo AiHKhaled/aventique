@@ -1,30 +1,23 @@
 /* eslint-disable */
-import React, { useEffect, useState } from "react";
-import axios from "../../api/axios";
+import React from "react";
+
 import { Link } from "react-router-dom";
 import Album from "./Album";
 import "../../styles/albums.css";
 import { ChildProps } from "@/@types/ChildProps";
+import useFetch from "@/hooks/useFetch";
+import { CircularProgress } from "@mui/material";
 
 const Albums: React.FC<ChildProps> = ({ setIsLoggedIn }: ChildProps) => {
-  const [albums, setAlbums] = useState([]);
-  if (setIsLoggedIn) setIsLoggedIn(true);
-  useEffect(() => {
-    axios
-      .get("")
-      .then((res) => {
-        const { data } = res;
+  const { fetchData: albums, loading, error } = useFetch("");
 
-        setAlbums(data);
-      })
-      .catch((err: any) => {
-        console.log(err);
-      });
-  }, []);
+  if (setIsLoggedIn) setIsLoggedIn(true);
 
   return (
     <>
       <h1 className="heading">Albums</h1>
+      {loading && <CircularProgress color="success" />}
+      {error && <p>{error}</p>}
       <div className="cardsContainer">
         {albums.map(({ title, id }) => {
           return (
